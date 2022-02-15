@@ -73,6 +73,7 @@ body {
 h1 {
     margin-top: 0px;
 }
+
 main {
     flex-grow: 1;
 }
@@ -81,6 +82,10 @@ header,
 main,
 footer {
     flex-shrink: 0;
+}
+
+header {
+    margin-bottom: -1rem;
 }
 
 .board-header button {
@@ -96,7 +101,25 @@ footer {
     width: 70px;
     margin-right: 1rem;
     margin-top: 0.5rem;
+    color: #fff
 }
+
+.x-button,
+.o-button,
+.easy,
+.hard {
+    background-color: rgb(40, 216, 240);
+}
+
+#selected {
+    // border: 2px solid rgb(231, 57, 188);
+    border: 2px solid rgb(0, 17, 255);
+}
+
+#reset {
+    background-color: rgb(231, 57, 188);
+}
+
 .row {
     display: flex;
 }
@@ -113,9 +136,10 @@ footer {
 
 .winner-text {
     height: 20px;
-    font-size: 1.2rem;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
     font-weight: 600;
 }
+
 
 .game-board {
     width: calc(var(--cardwidth) * 3);
@@ -134,12 +158,16 @@ span {
     align-items: center;
     border-left: 10px solid #78dcfa;
     border: 4px solid #fff;
-    font-size: 3rem;
+    font-size: clamp(3.5rem, 6.5vw, 5.5rem);
     font-weight: 900;
     color: white;
     padding: 0px;
     width: var(--cardwidth);
     height: var(--cardwidth);
+}
+
+span:hover {
+    cursor: pointer;
 }
 
 span:first-of-type,
@@ -164,6 +192,20 @@ span:last-of-type,
 :nth-of-type(6),
 :nth-of-type(3) {
     border-right: none;
+}
+
+@keyframes span {
+    0% {
+        color: rgba(255, 255, 255, 0.0);
+    }
+
+    30% {
+        color: rgba(255, 255, 255, 0.0);
+    }
+
+    100% {
+        color: rgba(255, 255, 255, 1.0);
+    }
 }
 
 // <--- header --->

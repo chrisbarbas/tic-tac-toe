@@ -85,6 +85,10 @@ footer {
       flex-shrink: 0;
 }
 
+header {
+  margin-bottom: -1rem;
+}
+
 .board-header button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -104,6 +108,22 @@ footer {
   width: 70px;
   margin-right: 1rem;
   margin-top: 0.5rem;
+  color: #fff;
+}
+
+.x-button,
+.o-button,
+.easy,
+.hard {
+  background-color: #28d8f0;
+}
+
+#selected {
+  border: 2px solid #0011ff;
+}
+
+#reset {
+  background-color: #e739bc;
 }
 
 .row {
@@ -126,7 +146,7 @@ footer {
 
 .winner-text {
   height: 20px;
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 600;
 }
 
@@ -158,12 +178,16 @@ span {
           align-items: center;
   border-left: 10px solid #78dcfa;
   border: 4px solid #fff;
-  font-size: 3rem;
+  font-size: clamp(3.5rem, 6.5vw, 5.5rem);
   font-weight: 900;
   color: white;
   padding: 0px;
   width: var(--cardwidth);
   height: var(--cardwidth);
+}
+
+span:hover {
+  cursor: pointer;
 }
 
 span:first-of-type,
@@ -188,6 +212,30 @@ span:last-of-type,
 :nth-of-type(6),
 :nth-of-type(3) {
   border-right: none;
+}
+
+@-webkit-keyframes span {
+  0% {
+    color: rgba(255, 255, 255, 0);
+  }
+  30% {
+    color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    color: white;
+  }
+}
+
+@keyframes span {
+  0% {
+    color: rgba(255, 255, 255, 0);
+  }
+  30% {
+    color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    color: white;
+  }
 }
 
 header {
