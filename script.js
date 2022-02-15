@@ -62,6 +62,7 @@ const settings = (() => {
 //gameBoard module pattern
 const gameBoard = (() => {
     let array = ['', '', '', '', '', '', '', '', ''];
+    let playerWent = false;
     let gameOver = false;
     const winConditions = [
         //rows
@@ -82,6 +83,7 @@ const gameBoard = (() => {
         let item = e.target;
         let spanIndex = item.dataset.index;
         if (!gameOver && array[spanIndex] == '') {
+            playerWent = true;
             array.splice(spanIndex, 1, player.marker);
             displayController.updatePlayerDisplay(item, player.marker);
             checkWinner(winConditions);
@@ -173,7 +175,12 @@ const gameBoard = (() => {
     const resetBtn = document.querySelector('.reset');
     resetBtn.addEventListener('click', () => reset());
 
+    setTimeout(function () {
+        resetBtn.disabled = false;
+    }, 4000);
+
     function reset() {
+        playerWent == false;
         array = ['', '', '', '', '', '', '', '', ''];
         displayController.clearDisplay();
         gameOver = false;
@@ -183,6 +190,7 @@ const gameBoard = (() => {
     }
     return {
         array,
+        playerWent,
         playerMove,
         checkFor,
         reset
@@ -213,11 +221,16 @@ const displayController = (() => {
     }
 
     const updateCompDisplay = (index, marker) => {
-        setTimeout(function () {
-            const user = document.querySelector("#index" + index)
+        const user = document.querySelector("#index" + index);
+        if (gameBoard.playerWent === false) {
             user.style.animation = "span 0.2s ease-in";
             user.textContent = marker;
-        }, 800);
+        } else {
+            setTimeout(function () {
+                user.style.animation = "span 0.2s ease-in";
+                user.textContent = marker;
+            }, 700);
+        }
     }
 
     const clearDisplay = () => {
@@ -230,7 +243,7 @@ const displayController = (() => {
     const updateWinner = (text) => {
         setTimeout(function () {
             winnerText.textContent = text;
-        }, 800);
+        }, 600);
     }
     return {
         createDisplay,
