@@ -217,7 +217,7 @@ const displayController = (() => {
             const user = document.querySelector("#index" + index)
             user.style.animation = "span 0.2s ease-in";
             user.textContent = marker;
-        }, 700);
+        }, 800);
     }
 
     const clearDisplay = () => {

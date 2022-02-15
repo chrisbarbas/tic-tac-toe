@@ -95,10 +95,10 @@ header {
     border: none;
     cursor: pointer;
     font-weight: bold;
-    font-size: 15px;
+    font-size: clamp(0.9rem, 2.8vw, 1.4rem);
+    height: clamp(2rem, 4.5vw, 3.2rem);
+    width: clamp(4rem, 9vw, 6.4rem);
     border-radius: 10px;
-    height: 30px;
-    width: 70px;
     margin-right: 1rem;
     margin-top: 0.5rem;
     color: #fff
@@ -134,9 +134,17 @@ header {
 
 // <--- main --->
 
+
+.row:last-of-type {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 .winner-text {
-    height: 20px;
-    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    margin-top: 10px;
+    height: 10px;
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
     font-weight: 600;
 }
 
